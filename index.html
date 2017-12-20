@@ -3,9 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Ask.fm: Home</title>
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 	</head>
 	<body>
 		<h1 id="BigOne"></h1>
+
+		<table id="users" class="display" width="100%"></table>
 
 		<div id="main-form">
 			<label for="username" >Username: </label>
@@ -26,6 +29,8 @@
 		<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js"></script> -->
 
 		<script src="index.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 		<script>
 			// Initialize Firebase
 			var config = {
@@ -39,21 +44,8 @@
 
 			firebase.initializeApp(config);
 			// renderData();
-			var big_one = document.getElementById('BigOne');
-		  var dbRef = firebase.database().ref().child('users');
-		  dbRef.on('value', snap => {
-				let result = "";
-				let users = snap.val();
-				for (let p in users) {
-					if(users.hasOwnProperty(p)) {
-						result += users[p].email + "," + users[p].name + "," + users[p].username + '\n';
-					}
-				}
-				console.log(result);
-				big_one.innerText = result;
-
-			});
-
+			// var big_one = document.getElementById('BigOne');
+			renderData();
 		</script>
 	</body>
 
