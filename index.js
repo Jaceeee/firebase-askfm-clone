@@ -1,5 +1,3 @@
-var database = firebase.database();
-
 function submit() {
   let username = document.getElementById('username').value;
   let name = document.getElementById('name').value;
@@ -15,4 +13,9 @@ function addUser(userId, name, username, email) {
     email: email
   });
   alert("works");
+}
+
+function renderData() {
+  let database = firebase.database();
+  console.log(database.ref().child('users'));
 }

@@ -19,30 +19,42 @@
 
 
 		<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js"></script>
+		<!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-auth.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-database.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-firestore.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js"></script> -->
 
-		<script>
-		  // Initialize Firebase
-		  var config = {
-		    apiKey: "AIzaSyCnqHYTQJWg4O1VTb9KM7qogg_pu1RkZjI",
-		    authDomain: "ask-fm-clone.firebaseapp.com",
-		    databaseURL: "https://ask-fm-clone.firebaseio.com",
-		    projectId: "ask-fm-clone",
-		    storageBucket: "ask-fm-clone.appspot.com",
-		    messagingSenderId: "218728084427"
-		  };
-
-		  firebase.initializeApp(config);
-
-		  // var big_one = document.getElementById('BigOne');
-		  // var dbRef = firebase.database().ref().child('text');
-		  // dbRef.on('value', snap => big_one.innerText = snap.val());
-		</script>
 		<script src="index.js"></script>
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyCnqHYTQJWg4O1VTb9KM7qogg_pu1RkZjI",
+				authDomain: "ask-fm-clone.firebaseapp.com",
+				databaseURL: "https://ask-fm-clone.firebaseio.com",
+				projectId: "ask-fm-clone",
+				storageBucket: "ask-fm-clone.appspot.com",
+				messagingSenderId: "218728084427"
+			};
+
+			firebase.initializeApp(config);
+			// renderData();
+			var big_one = document.getElementById('BigOne');
+		  var dbRef = firebase.database().ref().child('users');
+		  dbRef.on('value', snap => {
+				let result = "";
+				let users = snap.val();
+				for (let p in users) {
+					if(users.hasOwnProperty(p)) {
+						result += users[p].email + "," + users[p].name + "," + users[p].username + '\n';
+					}
+				}
+				console.log(result);
+				big_one.innerText = result;
+
+			});
+
+		</script>
 	</body>
 
 </html>
