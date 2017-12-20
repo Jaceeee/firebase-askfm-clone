@@ -1,0 +1,28 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Start up screen</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Ask.fm</h1>
+    <input type="button" value="Sign in" onclick="window.location='signin.html'">
+    <input type="button" value="Sign up" onclick="window.location='signup.html'">    
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="authentication.js"></script>
+
+    <script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyCnqHYTQJWg4O1VTb9KM7qogg_pu1RkZjI",
+				authDomain: "ask-fm-clone.firebaseapp.com",
+				databaseURL: "https://ask-fm-clone.firebaseio.com",
+				projectId: "ask-fm-clone",
+				storageBucket: "ask-fm-clone.appspot.com",
+				messagingSenderId: "218728084427"
+			};
+			firebase.initializeApp(config);
+		</script>
+  </body>
+</html>

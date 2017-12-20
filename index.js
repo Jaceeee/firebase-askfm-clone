@@ -1,4 +1,5 @@
 
+
 function submit() {
   let database = firebase.database();
   let username = document.getElementById('username').value;
