@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sign-up</title>
+  </head>
+  <body>
+
+    <div id="signup">
+      <label for="">Name</label>
+      <input type="text" id="name"><br>
+      <label for="">Username</label>
+      <input type="text" id="username"><br>
+      <label for="">Email</label>
+      <input type="text" id="email"><br>
+      <label for="">Password</label>
+      <input type="password" id="password"><br>
+      <input type="button" value="Create Account"><br>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="index.js"></script>
+    <script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyCnqHYTQJWg4O1VTb9KM7qogg_pu1RkZjI",
+				authDomain: "ask-fm-clone.firebaseapp.com",
+				databaseURL: "https://ask-fm-clone.firebaseio.com",
+				projectId: "ask-fm-clone",
+				storageBucket: "ask-fm-clone.appspot.com",
+				messagingSenderId: "218728084427"
+			};
+
+			firebase.initializeApp(config);
+		</script>
+  </body>
+</html>
